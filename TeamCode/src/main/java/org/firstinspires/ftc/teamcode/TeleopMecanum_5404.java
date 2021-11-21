@@ -31,8 +31,8 @@ import org.firstinspires.ftc.teamcode.MecanumDrivetrain;
 //@Disabled
 public class TeleopMecanum_5404 extends OpMode {
     double pos=0;
-    DcMotor motorFrontRight,motorFrontLeft,motorBackRight,motorBackLeft,lnrSld,crs;
-    CRServo s;
+    DcMotor motorFrontRight,motorFrontLeft,motorBackRight,motorBackLeft,lnrSld,crs,intake,intake1;
+    Servo s;
 
     public MecanumDrivetrain drivetrain;
 
@@ -46,11 +46,14 @@ public class TeleopMecanum_5404 extends OpMode {
         motorFrontLeft = hardwareMap.dcMotor.get("fl");
         motorBackLeft = hardwareMap.dcMotor.get("bl");
         motorBackRight = hardwareMap.dcMotor.get("br");
+        intake=hardwareMap.dcMotor.get("intake");
         crs=hardwareMap.dcMotor.get("crs");
-        s=hardwareMap.crservo.get("s");
+        intake1=hardwareMap.dcMotor.get("intake1");
+        s=hardwareMap.servo.get("s");
         lnrSld=hardwareMap.dcMotor.get("linear");
         drivetrain = new MecanumDrivetrain(new DcMotor[]{motorFrontLeft, motorFrontRight, motorBackLeft, motorBackRight});
         pos=1;
+        s.setPosition(0.7);
     }
 
 
@@ -64,11 +67,9 @@ public class TeleopMecanum_5404 extends OpMode {
         drivetrain.setVelocity(0.5 * velocity);
         drivetrain.setRotation(rotation);
         if(gamepad1.left_bumper) {
-            s.setPower(0.3);
+            s.setPosition(0.7);
         }else if(gamepad1.right_bumper){
-            s.setPower(-0.3);
-        }else{
-            s.setPower(0);
+            s.setPosition(0);
         }
         if(gamepad2.left_bumper){
             lnrSld.setPower(0.5);
@@ -78,7 +79,16 @@ public class TeleopMecanum_5404 extends OpMode {
             lnrSld.setPower(0);
         }
         if(gamepad1.y){
-            crs.setPower(-0.7);
+            intake.setPower(-0.6);
+            intake1.setPower(0.6);
+        }else if(gamepad1.a){
+            intake.setPower(0);
+            intake1.setPower(0);
+        }
+        if(gamepad2.x) {
+            crs.setPower(0.3);
+        }else if(gamepad2.b){
+            crs.setPower(-0.3);
         }else{
             crs.setPower(0);
         }
