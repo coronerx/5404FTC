@@ -3,18 +3,16 @@ import com.qualcomm.robotcore.*;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.*;
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
-@Autonomous(name="blueBailan", group="Pushbot")
-public class blueBailan extends LinearOpMode {
+@Autonomous(name="redBailanFar", group="Pushbot")
+public class redBailanFar extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
     HardwarePushbot robot   = new HardwarePushbot();
     DcMotor br,bl,fr,fl;
-    Servo s;
     static final double     COUNTS_PER_MOTOR_REV    = 384.5 ;
     static final double     DRIVE_GEAR_REDUCTION    = 1.0 ;
     static final double     WHEEL_DIAMETER_INCHES   = 4.72441 ;
@@ -86,24 +84,10 @@ public class blueBailan extends LinearOpMode {
     public void runOpMode() {
         Init();
         waitForStart();
-        //move forward 24 inches
-        moveStraight(0.7,24, 1.5);
-        //turn left
+        moveStraight(0.7,84,3);
         turnLeft();
-        //move forward 36 inches
-        moveStraight(0.7,36,2);
-    }
-    public void game_throwElement(){
-        Init();
-        waitForStart();
-        //set servo to position where it throws the element
-        s.setposition(0);
-        //set servo back to initialization position
-        s.setposition(0.7);
-        moveStraight(0.7,24,2);
-        //turn left
-        turnLeft();
-        //move forward 36 inches
-        moveStraight(0.7,24,2);
+        moveStraight(0.6,24,1.5);
+
+
     }
 }
