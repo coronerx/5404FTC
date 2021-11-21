@@ -87,6 +87,19 @@ public class blueBailan extends LinearOpMode {
         Init();
         waitForStart();
         //move forward 24 inches
+        moveStraight(0.7,24, 1.5);
+        //turn left
+        turnLeft();
+        //move forward 36 inches
+        moveStraight(0.7,36,2);
+    }
+    public void game_throwElement(){
+        Init();
+        waitForStart();
+        //set servo to position where it throws the element
+        s.setposition(0);
+        //set servo back to initialization position
+        s.setposition(0.7);
         moveStraight(0.7,24,2);
         //turn left
         turnLeft();
