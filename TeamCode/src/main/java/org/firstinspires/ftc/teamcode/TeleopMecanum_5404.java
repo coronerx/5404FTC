@@ -72,15 +72,15 @@ public class TeleopMecanum_5404 extends OpMode {
             s.setPosition(0);
         }
         if(gamepad2.left_bumper){
-            lnrSld.setPower(0.5);
+            lnrSld.setPower(0.7);
         }else if(gamepad2.right_bumper){
-            lnrSld.setPower(-0.5);
+            lnrSld.setPower(-0.7);
         }else {
             lnrSld.setPower(0);
         }
         if(gamepad1.y){
-            intake.setPower(-0.6);
-            intake1.setPower(0.6);
+            intake.setPower(-0.4);
+            intake1.setPower(0.4);
         }else if(gamepad1.a){
             intake.setPower(0);
             intake1.setPower(0);

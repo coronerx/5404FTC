@@ -97,9 +97,9 @@ public class blueBailan extends LinearOpMode {
         Init();
         waitForStart();
         //set servo to position where it throws the element
-        s.setposition(0);
+        s.setPosition(0);
         //set servo back to initialization position
-        s.setposition(0.7);
+        s.setPosition(0.7);
         moveStraight(0.7,24,2);
         //turn left
         turnLeft();
